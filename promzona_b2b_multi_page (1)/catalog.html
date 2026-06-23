@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Индустриальный каталог — PromZona B2B</title>
+    
+    <!-- Deep premium typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS dynamic engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              slate: {
+                55: '#1e293b',
+                750: '#1e293b',
+                850: '#0f172a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons dynamic script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- JSZip for dynamic zip generation and download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="/_aistudio-iframe.js"></script></head>
+  <body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-amber-500 selection:text-slate-950">
+    
+    <div id="header"></div>
+
+    <main class="flex-grow">
+      <section class="bg-slate-900 text-white py-14 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-orange-500/10 opacity-30"></div>
+        <div class="max-w-4xl mx-auto text-center px-4 relative z-10 space-y-4">
+          <h1 class="text-2xl sm:text-4xl font-black tracking-tight leading-none text-white">Индустриальный каталог услуг</h1>
+          <p class="text-slate-300 max-w-xl mx-auto text-xs sm:text-sm font-semibold">
+            Быстрый поиск готовых предложений, свободных мощностей цехов и строительных подрядов
+          </p>
+
+          <!-- Search Form -->
+          <div class="bg-white p-2.5 rounded-2xl shadow-xl flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto text-slate-900 mt-6">
+            <div class="flex-1 flex items-center space-x-2 px-3">
+              <i data-lucide="search" class="h-4.5 w-4.5 text-gray-400 shrink-0"></i>
+              <input 
+                type="text" 
+                id="catalog-search-input"
+                placeholder="Какая деталь или услуга нужна? (Напр. ЧПУ, Лазерная)..." 
+                class="w-full bg-transparent focus:outline-none text-xs font-bold py-2 text-slate-900"
+              />
+            </div>
+            <button 
+              id="search-btn"
+              class="bg-amber-500 hover:bg-amber-600 font-extrabold text-xs uppercase tracking-wider text-slate-950 px-6 py-3 rounded-xl transition-all"
+            >
+              Найти
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories list grid -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <div>
+          <h2 class="text-xl font-black text-slate-900 tracking-tight uppercase">Отраслевые группы</h2>
+          <p class="text-xs text-gray-400 mt-1 font-semibold">Выберите группу для перехода к подробному поиску подрядчиков</p>
+        </div>
+
+        <div id="categories-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+          <!-- Dynamically Injected -->
+        </div>
+
+        <!-- Featured services grid -->
+        <div class="pt-8 space-y-6">
+          <div class="flex justify-between items-end">
+            <div>
+              <h2 class="text-xl font-black text-slate-900 tracking-tight uppercase">Рекомендованные предложения</h2>
+              <p class="text-xs text-gray-400 mt-1 font-semibold">Размещено фабриками с наивысшим рейтингом качества ОТК</p>
+            </div>
+            <a href="services.html" class="text-xs font-bold text-amber-600 hover:text-amber-700">Смотреть все</a>
+          </div>
+
+          <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dynamically Injected -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="/catalog.html?html-proxy&index=0.js"></script>
+  </body>
+</html>

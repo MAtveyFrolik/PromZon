@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Доступные Услуги и Заказы — PromZona B2B</title>
+    
+    <!-- Deep premium typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS dynamic engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons dynamic script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- JSZip for dynamic zip generation and download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="/_aistudio-iframe.js"></script></head>
+  <body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-amber-500 selection:text-slate-950">
+    
+    <div id="header"></div>
+
+    <main class="flex-grow">
+      <section class="bg-slate-900 text-white py-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-orange-500/10 opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 space-y-1">
+          <h1 class="text-2xl sm:text-3.5xl font-black text-white tracking-tight uppercase">Доступные Услуги и Мощности</h1>
+          <p class="text-xs text-slate-300 font-semibold max-w-xl">
+            Сравнивайте цены, заказывайте детали из стали, сплавов, пластиков и дерева напрямую у производства.
+          </p>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Left Filter rail -->
+          <div class="lg:col-span-3 bg-white p-5 rounded-2xl border border-gray-200 space-y-6 h-fit shadow-2xs">
+            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+              <span class="font-extrabold text-xs text-slate-900 uppercase tracking-widest">Услуги Фильтр</span>
+              <button id="reset-services" class="text-[10px] font-extrabold text-amber-600 uppercase tracking-widest hover:text-amber-700">Сбросить</button>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Категория</label>
+              <div id="category-filters-container" class="flex flex-col space-y-1.5 text-xs text-slate-700">
+                <button data-cat="" class="text-left px-2 py-1.5 hover:bg-slate-50 font-bold rounded-lg text-amber-600 transition-colors">🔥 Все услуги</button>
+                <button data-cat="Металлообработка" class="text-left px-2 py-1.5 hover:bg-slate-50 font-bold rounded-lg transition-colors">Металлообработка</button>
+                <button data-cat="Электроника" class="text-left px-2 py-1.5 hover:bg-slate-50 font-bold rounded-lg transition-colors">Электроника</button>
+                <button data-cat="Деревообработка" class="text-left px-2 py-1.5 hover:bg-slate-50 font-bold rounded-lg transition-colors">Деревообработка</button>
+                <button data-cat="Строительство" class="text-left px-2 py-1.5 hover:bg-slate-50 font-bold rounded-lg transition-colors">Промышленное строительство</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main listings column -->
+          <div class="lg:col-span-9 space-y-6">
+            <div id="services-count-bar" class="text-xs font-bold text-gray-500 bg-white p-4 rounded-xl border border-gray-150 flex justify-between items-center">
+              <span>Лот-предложений: <span id="services-count" class="text-slate-900 font-extrabold">0</span></span>
+              <span id="active-category-label" class="text-emerald-500">Все отраслевые группы</span>
+            </div>
+
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Dynamically Injected -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="/services.html?html-proxy&index=0.js"></script>
+  </body>
+</html>

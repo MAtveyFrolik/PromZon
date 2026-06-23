@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PromZona B2B — Федеральный реестр промышленности</title>
+    
+    <!-- Deep premium typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS dynamic engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              slate: {
+                55: '#1e293b',
+                750: '#1e293b',
+                850: '#0f172a',
+              }
+            },
+            fontSize: {
+              '2xs': '0.7rem',
+              '3xs': '0.625rem',
+              '4xs': '0.5rem',
+              'rxs': '0.65rem'
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons dynamic script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- JSZip for dynamic zip generation and download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <style>
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+      .scroll-x::-webkit-scrollbar {
+        height: 4px;
+      }
+      .scroll-x::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 2px;
+      }
+    </style>
+  <script src="/_aistudio-iframe.js"></script></head>
+  <body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-amber-500 selection:text-slate-950">
+    
+    <!-- Header wrapper dynamically injected via common.js -->
+    <div id="header"></div>
+
+    <!-- Main dynamic body -->
+    <main class="flex-grow">
+      
+      <!-- Top Hero Header -->
+      <section class="bg-slate-900 text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-amber-500/15 to-orange-500/10 opacity-40"></div>
+        <div class="max-w-4xl mx-auto text-center px-4 relative z-10 space-y-6">
+          <span class="px-3.5 py-1 bg-amber-500/15 border border-amber-500/25 rounded-md text-amber-400 text-xs font-black uppercase tracking-widest inline-block">
+            Индустриальная безопасность • ГОСТ координация
+          </span>
+          <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tighter">
+            Проверенные заводы и подрядчики всей России
+          </h1>
+          <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-semibold">
+            Организуйте бесперебойную B2B-цепь поставок: аренда промышленных мощностей, субподрядная металлообработка, строительство цехов и контрактная сборка.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <a href="catalog.html" class="px-6 py-3.5 bg-amber-500 hover:bg-amber-600 font-extrabold text-slate-950 text-xs uppercase tracking-widest rounded-xl transition-all shadow-md shadow-amber-500/10 flex items-center space-x-2">
+              <span>Открыть Каталог</span>
+              <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </a>
+            <a href="production.html" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-750 font-extrabold text-white text-xs uppercase tracking-widest rounded-xl transition-all border border-slate-700">
+              Реестр Производителей
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats grid -->
+      <section class="-mt-8 max-w-7xl mx-auto px-4 relative z-20">
+        <div class="bg-white rounded-3xl border border-gray-200/80 p-6 sm:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 shadow-xl">
+          <div class="space-y-1">
+            <span class="block text-3xl font-black text-slate-900 font-mono">1,400+</span>
+            <span class="block text-2xs uppercase font-extrabold text-gray-400 tracking-wider">Заводов ЧПУ</span>
+          </div>
+          <div class="space-y-1 border-l border-gray-100 pl-6">
+            <span class="block text-3xl font-black text-amber-600 font-mono">312</span>
+            <span class="block text-2xs uppercase font-extrabold text-gray-400 tracking-wider">Верифицировано СРО</span>
+          </div>
+          <div class="space-y-1 border-l border-gray-100 pl-6">
+            <span class="block text-3xl font-black text-slate-900 font-mono">24/7</span>
+            <span class="block text-2xs uppercase font-extrabold text-gray-400 tracking-wider">Арбитраж сделок</span>
+          </div>
+          <div class="space-y-1 border-l border-gray-100 pl-6">
+            <span class="block text-3xl font-black text-slate-900 font-mono">15 млн ₽</span>
+            <span class="block text-2xs uppercase font-extrabold text-gray-400 tracking-wider">Средний контракт</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed description of capabilities -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+           <span class="text-3xs text-amber-600 uppercase font-extrabold tracking-widest">Промышленная Безопасность</span>
+           <h2 class="text-3xl font-black text-slate-900 tracking-tight leading-none">Устраняем посредников при сложных тендерах</h2>
+           <p class="text-sm text-gray-650 leading-relaxed font-semibold">
+             Платформа PromZona объединяет непосредственных держателей оборудования. Больше никаких субподрядных наценок от пустых офисов: вы общаетесь в зашифрованных диалогах напрямую с главными технологами заводов.
+           </p>
+           <div class="space-y-3">
+             <div class="flex items-start space-x-3">
+               <div class="h-6 w-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                 <i data-lucide="check-circle-2" class="h-4 w-4"></i>
+               </div>
+               <div>
+                 <h4 class="font-extrabold text-xs text-slate-900">Государственные нормативы ТУ и ГОСТ</h4>
+                 <p class="text-[11px] text-gray-400 font-semibold leading-relaxed">Все исполнители загружают ИНН, устав СРО и отчетность ОТК на верификационный узел.</p>
+               </div>
+             </div>
+             <div class="flex items-start space-x-3">
+               <div class="h-6 w-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                 <i data-lucide="check-circle-2" class="h-4 w-4"></i>
+               </div>
+               <div>
+                 <h4 class="font-extrabold text-xs text-slate-900">Поэтапное финансовое сопровождение аккредитивами</h4>
+                 <p class="text-[11px] text-gray-400 font-semibold leading-relaxed">Деньги подрядчику перечисляются исключительно после успешной приемки деталей вашей лабораторией качества.</p>
+               </div>
+             </div>
+           </div>
+        </div>
+        
+        <!-- Graphic presentation card -->
+        <div class="bg-white p-6 rounded-3xl border border-gray-200/80 shadow-md space-y-6 relative">
+          <div class="absolute right-6 top-6 h-12 w-12 rounded-full bg-slate-900 text-amber-400 flex items-center justify-center font-bold font-mono text-sm shadow">
+            A++
+          </div>
+          <img referrerPolicy="no-referrer" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&auto=format&fit=crop&q=80" alt="Цех ЧПУ станков" class="rounded-2xl h-64 w-full object-cover border border-gray-150" />
+          <div class="space-y-1.5">
+            <span class="block text-rxs text-amber-600 font-black tracking-widest uppercase">Ситуационный центр ОПК</span>
+            <h3 class="font-black text-sm text-slate-900 leading-snug">Оперативный контроль загрузки свободных мощностей</h3>
+            <p class="text-2xs text-gray-500 leading-relaxed font-semibold">Все цехи регулярно обновляют интерактивный статус занятости своего оборудования, чтобы вам не пришлось часами ждать ответа.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer wrapper dynamically injected via common.js -->
+    <div id="footer"></div>
+
+    <!-- Application module startup -->
+    <script type="module" src="/index.html?html-proxy&index=0.js"></script>
+  </body>
+</html>

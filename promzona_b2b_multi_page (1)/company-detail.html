@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Карточка предприятия — PromZona B2B</title>
+    
+    <!-- Deep premium typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS dynamic engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons dynamic script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- JSZip for dynamic zip generation and download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="/_aistudio-iframe.js"></script></head>
+  <body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-amber-500 selection:text-slate-950">
+    
+    <div id="header"></div>
+
+    <main class="flex-grow">
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+        
+        <!-- Back breadcrumbs -->
+        <div class="flex items-center space-x-2 text-2xs font-extrabold uppercase tracking-widest text-gray-400 mb-4 px-1" id="breadcrumbs">
+          <a href="production.html" class="hover:text-amber-500 flex items-center"><i data-lucide="arrow-left" class="h-3 w-3 mr-1 inline"></i> К списку производителей</a>
+          <span>/</span>
+          <span class="text-slate-900" id="company-name-bread">...</span>
+        </div>
+
+        <div id="company-container">
+          <!-- Dynamically Injected Profile Card & Side Columns -->
+        </div>
+
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="/company-detail.html?html-proxy&index=0.js"></script>
+  </body>
+</html>

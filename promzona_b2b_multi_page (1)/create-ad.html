@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Разместить мощности — PromZona B2B</title>
+    
+    <!-- Deep premium typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS dynamic engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons dynamic script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- JSZip for dynamic zip generation and download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="/_aistudio-iframe.js"></script></head>
+  <body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-amber-500 selection:text-slate-950">
+    
+    <div id="header"></div>
+
+    <main class="flex-grow">
+      <section class="max-w-3xl mx-auto px-4 py-12 space-y-8">
+        
+        <div class="space-y-2">
+          <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight uppercase">Разместить промышленную мощность</h1>
+          <p class="text-xs text-gray-400 font-semibold leading-relaxed">
+            Заполните параметры вашего цеха, прикрепите класс допуска по ГОСТ и установите ориентировочную цену за нормо-час или единицу изделия.
+          </p>
+        </div>
+
+        <form id="create-ad-form" class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200/80 shadow-xl space-y-6">
+          
+          <div class="space-y-2">
+            <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Название верифицированной услуги</label>
+            <input 
+              type="text" 
+              id="ad-title" 
+              required
+              placeholder="Напр. Токарная обработка на станках ЧПУ 5-осей..." 
+              class="w-full bg-slate-50 focus:bg-white border border-gray-150 focus:border-amber-500 focus:outline-none p-3.5 rounded-xl text-xs font-bold transition-all text-slate-900"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Отраслевая группа</label>
+              <select 
+                id="ad-category" 
+                class="w-full bg-slate-50 focus:bg-white border border-gray-150 focus:border-amber-500 focus:outline-none p-3.5 rounded-xl text-xs font-bold transition-all text-slate-900"
+              >
+                <option value="Металлообработка">Металлообработка</option>
+                <option value="Электроника">Электроника</option>
+                <option value="Деревообработка">Деревообработка</option>
+                <option value="Строительство">Промышленное строительство</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Иллюстрация цеха</label>
+              <select 
+                id="ad-image" 
+                class="w-full bg-slate-50 focus:bg-white border border-gray-150 focus:border-amber-500 focus:outline-none p-3.5 rounded-xl text-xs font-bold transition-all text-slate-900"
+              >
+                <option value="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800">Цех Токарной обработки (Сталь)</option>
+                <option value="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800">Чистая комната Электроники</option>
+                <option value="https://images.unsplash.com/photo-1565514020179-026b92b2d70b?w=800">Линия сборки / Лазерная резка</option>
+                <option value="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800">Деревообрабатывающий цех</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Цена (от) ₽</label>
+              <input 
+                type="number" 
+                id="ad-price" 
+                required
+                placeholder="4000" 
+                class="w-full bg-slate-50 focus:bg-white border border-gray-150 focus:border-amber-500 focus:outline-none p-3.5 rounded-xl text-xs font-bold transition-all text-slate-900"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Единица расчета</label>
+              <select 
+                id="ad-unit" 
+                class="w-full bg-slate-50 focus:bg-white border border-gray-150 focus:border-amber-500 focus:outline-none p-3.5 rounded-xl text-xs font-bold transition-all text-slate-900"
+              >
+                <option value="нормо-час">нормо-час</option>
+                <option value="кг">кг сплава</option>
+                <option value="дм²">дм² платы</option>
+                <option value="м²">м² цеха</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Регион размещения</label>
+              <input 
+                type="text" 
+                id="ad-location" 
+                required
+                placeholder="Московская обл." 
+                class="w-full bg-slate-50 focus:bg-white border border-gray-150 focus:border-amber-500 focus:outline-none p-3.5 rounded-xl text-xs font-bold transition-all text-slate-900"
+              />
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Детальные технические спецификации и описание</label>
+            <textarea 
+              id="ad-desc" 
+              rows="4"
+              required
+              placeholder="Укажите максимальные габариты деталей, допуски в микронах, тип материала (Д16Т, АМг6, латунь LS59) и срок согласования чертежа..." 
+              class="w-full bg-slate-50 focus:bg-white border border-gray-150 focus:border-amber-500 focus:outline-none p-3.5 rounded-xl text-xs font-bold transition-all text-slate-900 font-sans"
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg shadow-amber-500/10"
+          >
+            Опубликовать предложение
+          </button>
+        </form>
+
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="/create-ad.html?html-proxy&index=0.js"></script>
+  </body>
+</html>

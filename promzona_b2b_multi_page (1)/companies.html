@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Единый реестр промышленности РФ — PromZona B2B</title>
+    
+    <!-- Deep premium typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS dynamic engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons dynamic script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- JSZip for dynamic zip generation and download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="/_aistudio-iframe.js"></script></head>
+  <body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800 antialiased selection:bg-amber-500 selection:text-slate-950">
+    
+    <div id="header"></div>
+
+    <main class="flex-grow">
+      <section class="bg-slate-900 text-white py-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-orange-500/10 opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 space-y-1">
+          <h1 class="text-2xl sm:text-3.5xl font-black text-white tracking-tight uppercase">Единый промышленный реестр</h1>
+          <p class="text-xs text-slate-300 font-semibold max-w-xl">
+            Официальный список проверенных юрлиц РФ, имеющих право выполнять заказы по ГОСТ и ОСТ стандартам.
+          </p>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+        
+        <!-- Alphabet filter row -->
+        <div class="bg-white p-4.5 rounded-2xl border border-gray-200 shadow-3xs">
+          <span class="block text-[10px] uppercase font-extrabold text-slate-400 tracking-wider mb-3 px-2">Поиск по первой букве названия:</span>
+          <div id="alphabet-bar" class="flex flex-wrap items-center gap-1.5 pt-3 border-t border-gray-100 px-2 justify-center sm:justify-start">
+            <!-- Injected Letters -->
+          </div>
+        </div>
+
+        <!-- Companies list -->
+        <div class="space-y-4">
+          <div class="text-xs font-bold text-gray-500">Предприятий в реестре: <span id="filtered-count" class="text-slate-900 font-extrabold">0</span></div>
+
+          <div id="companies-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Dynamically Injected -->
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="/companies.html?html-proxy&index=0.js"></script>
+  </body>
+</html>
